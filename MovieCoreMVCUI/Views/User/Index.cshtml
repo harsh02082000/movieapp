@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<BookMyShowEntity.User>
+<div>
+    <hr />
+    <a asp-controller="User" asp-action="UserEntry">User Entry</a>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-12">
+        <h3>Users</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>User Name</th>
+                    <th>User Email</th>
+                    <th>User Password</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.Password</td>
+                        <td><a asp-controller="User" asp-action="EditUser" asp-route-UserId="@user.Id">Edit</a></td>
+                        <td><a asp-controller="User" asp-action="DeleteUser" asp-route-UserId="@user.Id">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

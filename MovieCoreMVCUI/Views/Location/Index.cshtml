@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<BookMyShowEntity.Location>
+<div>
+    <hr />
+    <a asp-controller="Location" asp-action="LocationEntry">Location Entry</a>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-12">
+        <h3>Locations</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Location Id</th>
+                    <th>Theatre Id</th>
+                    <th>Theatre Name</th>
+                    <th>Theatre Place</th>
+                     <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var location in Model)
+                {
+                    <tr>
+                        <td>@location.Id</td>
+                        <td>@location.TheatreId</td>
+                        <td>@location.Theatre.Name</td>
+                        <td>@location.Place</td>
+
+                        <td><a asp-controller="Location" asp-action="EditLocation" asp-route-LocationId="@location.Id">Edit</a></td>
+                        <td><a asp-controller="Location" asp-action="DeleteLocation" asp-route-LocationId="@location.Id">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

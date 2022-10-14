@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model BookMyShowEntity.User
+<div class="text-center">
+    <h1 class="display-4">Welcome to<span style="color:red"> BookMy</span> Show</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">   
+    <div class="bms">       
+        <h1>BookMy <span>Show</span></h1>  
+    </div>
+ </div>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <h4>User Authentication</h4>
+        <hr />
+        <div class="form-group">
+            <label>User Email</label>
+            <input type="text" asp-for="Email" class="form-control" placeholder="Enter User Email" required />
+        </div>
+        <div class="form-group">
+            <label>User Password</label>
+            <input type="text" asp-for="Password" class="form-control" placeholder="Enter User Password " required />
+            </div>
+        <input type="submit" value="Login" class="btn btn-outline-success" />
+        <input type="button" value="Reset" class="btn btn-outline-secondary" />
+        <hr />
+        @if (ViewBag.status == "Ok")
+        {
+            <div class="alert alert-success">
+                @ViewBag.message
+            </div>
+        }
+        else if (ViewBag.status == "Error")
+        {
+            <div class="alert alert-danger">
+                @ViewBag.message
+            </div>
+        }
+</form>
+</div>
+<style>
+ .bms {
+       display: flex;
+       text-align: center;
+       justify-content: center;
+       color: red;
+       }
+.bms h1 {
+        line-height: 100px;
+        font-size: 100px;
+        }
+ span {
+       
+      color: black;
+      }
+ 
+</style>

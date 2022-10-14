@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "DeleteUser";
+}
+@model BookMyShowEntity.User
+<div>
+    <hr />
+    <a asp-controller="User" asp-action="Index">Back to Index</a>
+    <hr />
+</div>
+<h1>DeleteUser</h1>
+<hr />
+<form method="post" enctype="multipart/form-data">
+    <h2>User Delete</h2><hr />
+    <div class="form-group">
+        <label>User id</label>
+        <input type="text" asp-for="Id" class="form-control"
+               placeholder="enter user id" required />
+    </div>
+
+
+    <input type="submit" value="Delete" class="btn btn-outline-success" />
+
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+</form>
+
